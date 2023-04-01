@@ -6,6 +6,7 @@
 
 :root {
   --very-dark-cyan: hsl(183, 100%, 15%);
+  --disabled: #0d686d;
   --strong-cyan: hsl(172, 67%, 45%);
   --dark-grayish-cyan: hsl(186, 14%, 43%);
   --grayish-cyan: hsl(184, 14%, 56%);
@@ -24,6 +25,11 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  background-color: var(--disabled);
 }
 
 input,
@@ -56,7 +62,7 @@ input {
 }
 
 .header {
-  padding-top: 5rem;
+  padding-top: 10rem;
   padding-bottom: 5rem;
   display: grid;
   place-items: center;
@@ -142,9 +148,8 @@ input:focus {
 #custom-tip {
   color: var(--dark-grayish-cyan);
   border-radius: 5px;
-  /* max-width: 7rem; */
-  max-width: 8rem;
-  padding: 8px 16px;
+  max-width: 7rem;
+  padding: 4px 12px;
   text-align: right;
 }
 
@@ -156,11 +161,6 @@ input:focus {
   }
 }
 
-#default-btn {
-  background-color: var(--strong-cyan);
-  color: var(--very-dark-cyan);
-}
-
 .tip-btn {
   background-color: var(--very-dark-cyan);
   color: var(--white);
@@ -170,6 +170,11 @@ input:focus {
 .tip-btn:hover {
   background: var(--light-grayish-cyan);
   color: var(--very-dark-cyan);
+}
+
+.tip-btn .selected {
+  background-color: var(--strong-cyan);
+  color: var(--dark-grayish-cyan);
 }
 
 .bill-input.price input {
@@ -236,6 +241,7 @@ input:focus {
 }
 
 #reset-btn {
+  cursor: default;
   background-color: var(--strong-cyan);
   text-transform: uppercase;
   color: var(--very-dark-cyan);
@@ -247,4 +253,9 @@ input:focus {
 
 #reset-btn:hover {
   background-color: var(--light-grayish-cyan);
+}
+
+#reset-btn:disabled {
+  pointer-events: none;
+  background-color: var(--disabled);
 }

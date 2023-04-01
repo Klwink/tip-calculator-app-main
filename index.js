@@ -5,8 +5,9 @@ let tipEl = document.getElementById("tip-amount")
 let totalEl = document.getElementById("total-amount")
 let tipButtons = document.querySelectorAll(".tip-btn")
 let customTip = document.getElementById("custom-tip")
-let alertEl = document.getElementById("alert-bill")
-let resetBtn = document.getElementById("reset-btn")
+const alertEl = document.getElementById("alert-bill")
+const resetBtn = document.getElementById("reset-btn")
+let selectedTip = ""
 
 function calcBill(tipValue) {
   if (billInput.value === "") {
@@ -26,6 +27,7 @@ function calcBill(tipValue) {
 
   tipEl.innerHTML = `$${tipAmount.toFixed(2)}`
   totalEl.innerHTML = `$${totalBill.toFixed(2)}`
+  resetBtn.removeAttribute("disabled")
 }
 
 tipButtons.forEach((button) => {
@@ -43,7 +45,6 @@ customTip.addEventListener("blur", (e) => {
 resetBtn.addEventListener("click", reset)
 
 function reset() {
-  // console.log("clicked reset!")
   billInput.value = ""
   numPeople.value = ""
   tipEl.innerHTML = "$0.00"
@@ -51,4 +52,5 @@ function reset() {
   alertEl.style.display = "none"
   customTip.innerText = "Custom"
   billInput.style.outlineColor = "hsl(172, 67%, 45%)"
+  resetBtn.toggleAttribute("disabled")
 }
