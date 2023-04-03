@@ -95,7 +95,6 @@ button {
 
 input {
   border: none;
-  outline: solid 2px var(--strong-cyan);
   background-color: var(--very-light-grayish-cyan);
   color: var(--very-dark-cyan);
 }
@@ -172,9 +171,9 @@ input:focus {
   color: var(--very-dark-cyan);
 }
 
-.tip-btn .selected {
+.tip-btn.clicked {
   background-color: var(--strong-cyan);
-  color: var(--dark-grayish-cyan);
+  color: var(--very-dark-cyan-cyan);
 }
 
 .bill-input.price input {

@@ -32,7 +32,9 @@ function calcBill(tipValue) {
 
 tipButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
+    tipButtons.forEach((btn) => btn.classList.remove("clicked"))
     let tip = Number.parseInt(e.target.innerText)
+    button.classList.add("clicked")
     calcBill(tip)
   })
 })
@@ -52,5 +54,6 @@ function reset() {
   alertEl.style.display = "none"
   customTip.innerText = "Custom"
   billInput.style.outlineColor = "hsl(172, 67%, 45%)"
+  tipButtons.forEach((btn) => btn.classList.remove("clicked"))
   resetBtn.toggleAttribute("disabled")
 }
